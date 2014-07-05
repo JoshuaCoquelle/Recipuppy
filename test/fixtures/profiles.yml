@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  f_name: MyString
+  l_name: MyString
+  address: MyString
+  city: MyString
+  treat_name: MyString
+  breeds_owned: MyString
+
+two:
+  f_name: MyString
+  l_name: MyString
+  address: MyString
+  city: MyString
+  treat_name: MyString
+  breeds_owned: MyString
