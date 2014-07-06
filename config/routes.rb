@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  resources :likes
 
-  resources :favorites
-
-  resources :comments
-
-  resources :posts
+  devise_for :users
 
   resources :profiles
 
-  devise_for :users
+  resources :posts do
+    resources :comments
+    resources :favorites
+    resources :likes
+  end
+
+  root to: "posts#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
