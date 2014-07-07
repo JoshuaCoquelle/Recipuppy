@@ -17,3 +17,9 @@ Potential Allergens:
     <%= f.submit "Add Comment" %>
   </div>
 <% end %>
+
+<% @post.comments.each do |x| %>
+  <div class="well">
+    <p><%= x.body %></p>
+  </div>
+<% end %>
