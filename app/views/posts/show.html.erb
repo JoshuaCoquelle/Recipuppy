@@ -1,26 +1,27 @@
 <h1><%= @post.title %></h1>
 
-Summary: 
+<strong>Summary:</strong
 <p><%= @post.description %></p>
-Ingredients: 
+<strong>Ingredients:</strong>
 <p><%= @post.ingredients %></p>
-Potential Allergens:
+<strong>Potential Allergens:</strong>
 <p><%= @post.potential_allergens %></p>
 
-<%= form_for [@post, @post.comments.build] do |f| %>
-  <div class="form-group">
-    <%= f.label :comment %>
-    <p><%= f.text_area :body, :size => "100x5", placeholder: "Enter Comment.." %></p>
-  </div>
+<%= form_for [@post, @comment] do |f| %>
+<div class="form-group">
+  <%= f.label :comment %>
+  <p><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!" %></p>
+</div>
 
-  <div>
-    <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
-  </div>
+<div>
+  <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+</div>
 <% end %>
 
 <div class="well">
   <% @post.comments.each do |comment| %>
-      <p><%= comment.body %></p>
-      <%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %>
+    <p><%= comment.body %></p>
+    <%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %>
+    <hr>
   <% end %>
 </div>
