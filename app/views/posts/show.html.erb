@@ -10,16 +10,17 @@ Potential Allergens:
 <%= form_for [@post, @post.comments.build] do |f| %>
   <div class="form-group">
     <%= f.label :comment %>
-    <p><%= f.text_area :body %></p>
+    <p><%= f.text_area :body, :size => "100x5", placeholder: "Enter Comment.." %></p>
   </div>
 
   <div>
-    <%= f.submit "Add Comment" %>
+    <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
   </div>
 <% end %>
 
-<% @post.comments.each do |x| %>
-  <div class="well">
-    <p><%= x.body %></p>
-  </div>
-<% end %>
+<div class="well">
+  <% @post.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+      <%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %>
+  <% end %>
+</div>

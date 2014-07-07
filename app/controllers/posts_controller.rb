@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order('id DESC')
   end
 
   def show
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post = Post.destroy
+    @post.destroy
     redirect_to 'posts_path'
   end
 
