@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :profiles
 
   resources :posts do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
     resources :favorites
     resources :likes
   end

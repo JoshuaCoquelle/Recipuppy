@@ -18,6 +18,8 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 # Devise for User signup/in/out
 gem 'devise'
+# allow votes from users
+gem 'acts_as_votable', '~> 0.10.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
