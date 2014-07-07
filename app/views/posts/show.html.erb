@@ -1,6 +1,20 @@
-<h1>Recipe</h1>
+<h1><%= @post.title %></h1>
 
-<%= @post.title %>
-<%= @post.description %>
-<%= @post.ingredients %>
-<%= @post.potential_allergens %>
+Summary: 
+<p><%= @post.description %></p>
+Ingredients: 
+<p><%= @post.ingredients %></p>
+Potential Allergens:
+<p><%= @post.potential_allergens %></p>
+
+<%= form_for [@post, @post.comments.build] do |f| %>
+  <div class="form-group">
+    <%= f.label :comment %>
+    <p><%= f.text_area :body %></p>
+  </div>
+
+  <div>
+    <%= f.submit "Add Comment" %>
+  </div>
+<% end %>
+
