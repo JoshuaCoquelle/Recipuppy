@@ -7,6 +7,12 @@
 <strong>Potential Allergens:</strong>
 <p><%= @post.potential_allergens %></p>
 
+<% if @post.liked_by?(current_user) %>
+<%= link_to "<i class= 'glyphicon glyphicon-thumbs-down'></i>".html_safe, [@post, @like], method: :delete %>
+<% else %>                    
+<%= link_to "<i class= 'glyphicon glyphicon-thumbs-up'></i>".html_safe, [@post, Like.new], method: :post %>
+<% end %>
+
 <%= form_for [@post, @comment] do |f| %>
 <div class="form-group">
   <%= f.label :comment %>

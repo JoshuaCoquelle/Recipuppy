@@ -9,4 +9,9 @@ class Post < ActiveRecord::Base
   validates :description, presence: true
   validates :ingredients, presence: true
   validates :potential_allergens, presence: true
+
+  def liked_by?(user)
+    likes.exists?(user: user)
+  end
+
 end
