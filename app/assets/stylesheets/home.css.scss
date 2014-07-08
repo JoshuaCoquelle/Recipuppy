@@ -9,14 +9,30 @@
 }
 
 .navbar {
-  background-color: #DECEB7;
-  //display: none;
+  background-color: white;
+  padding-top: 10px;
+}
+
+#navText {
+  font-size: 15px;
+  font-weight: 500;
+  color: #3498DB;
+}
+.navbar-brand {
+  font-size: 25px;
+  font-weight: 500;
+  color: #3498DB;
 }
 
 #middleDiv {
-  background-color: #BAD6C0;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: #3498db;
+}
+
+#midDivText {
+  color: white;
+  font-size: 50px;
+  font-weight: 300px;
+  text-align: center;
 }
 
 .absolute-center {

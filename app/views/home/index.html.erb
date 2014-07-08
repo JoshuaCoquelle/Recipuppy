@@ -9,35 +9,34 @@
   <div class="container" id="bottomCon">  
   </div>
 
-  <div class="container">
-    <div class="row"></div>
-    <div class="col-md-4"></div>   
-      <div class="row">
-        <div class="col-md-4" id="col_signUp">
-          <h2>Sign up</h2>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
+  
+<div class="row"></div>
+  <div class="col-md-4"></div>   
+    <div class="row">
+      <div class="col-md-4" id="col_signUp">
+        <h2>Your best friend's favorite recipes.</h2><hr>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-          <div>
-            <p><%= f.label :email %></p>
-            <p><%= f.email_field :email, autofocus: true, class: "form-control" %></p>
-          </div>
-
-          <div>
-            <p><%= f.label :password %></p>
-            <p><%= f.password_field :password, autocomplete: "off", class: "form-control" %></p>
-          </div>
-
-          <div>
-            <p><%= f.label :password_confirmation %></p>
-            <p><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %></p>
-          </div>
-
-          <div>
-            <p id="signUpHome"><%= f.submit "Sign up", class: "btn btn-default btn-lg" %></p>
-          </div>
-          <% end %>
+        <div>
+          <p><%= f.email_field :email, autofocus: true, class: "form-control",
+                                        placeholder: "Enter your email" %></p>
         </div>
+
+        <div>
+          <p><%= f.password_field :password, autocomplete: "off", class: "form-control",
+          placeholder: "Password" %></p>
+        </div>
+
+        <div>
+          <p><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",
+          placeholder: "Confirm your password" %></p>
+        </div>
+
+        <div>
+          <p id="signUpHome"><%= f.submit "Sign up", class: "btn btn-warning btn-lg btn-block" %></p>
+        </div>
+        <% end %>
       </div>
     </div>
 </section>

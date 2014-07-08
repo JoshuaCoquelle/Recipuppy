@@ -15,7 +15,7 @@ class LikesController < ApplicationController
   def destroy
     @like = current_user.likes.find(params[:id])
     if @like.destroy
-      redirect_to @post, notice: "Unliked."
+      redirect_to @post, notice: "Recipe Unliked."
     else
       redirect_to @post, notice: "Couldn't unlike."
     end
@@ -26,6 +26,5 @@ class LikesController < ApplicationController
   def find_post
     @post = Post.find(params[:post_id])
   end
-
 
 end
