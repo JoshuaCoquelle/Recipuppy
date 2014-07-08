@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
     likes.exists?(user: user)
   end
 
+  def favorited_by?(user)
+    favorites.exists?(user: user)
+  end
+
 end

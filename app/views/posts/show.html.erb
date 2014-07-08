@@ -8,9 +8,15 @@
 <p><%= @post.potential_allergens %></p>
 
 <% if @post.liked_by?(current_user) %>
-<%= link_to "<i class= 'glyphicon glyphicon-thumbs-down'></i>".html_safe, [@post, @like], method: :delete %>
+  <%= link_to "<i class='fa fa-thumbs-down fa-3x'></i>".html_safe, [@post, @like], method: :delete %>
 <% else %>                    
-<%= link_to "<i class= 'glyphicon glyphicon-thumbs-up'></i>".html_safe, [@post, Like.new], method: :post %>
+  <%= link_to "<i class='fa fa-thumbs-up fa-3x'></i>".html_safe, [@post, Like.new], method: :post %>
+<% end %>
+
+<% if @post.favorited_by?(current_user) %>
+  <%= link_to "<i class='fa fa-star-o fa-3x'></i>".html_safe, [@post, @favorite], method: :delete %>
+<% else %>                    
+  <%= link_to "<i class='fa fa-star fa-3x'></i>".html_safe, [@post, Favorite.new], method: :post %>
 <% end %>
 
 <%= form_for [@post, @comment] do |f| %>

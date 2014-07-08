@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @like = @post.likes.where(user: current_user).first
+    @favorite = @post.favorites.where(user: current_user).first
   end
 
   def new
