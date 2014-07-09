@@ -17,9 +17,5 @@ class Post < ActiveRecord::Base
   def favorited_by?(user)
     favorites.exists?(user: user)
   end
-
-  def time_format
-    @post.created_at.strftime("%d/%b/%Y") 
-  end
-
+  
 end

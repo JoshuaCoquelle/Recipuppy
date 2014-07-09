@@ -28,8 +28,6 @@
           <li><%= link_to "Home", root_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Profile", profile_path(current_user) %> </li>
-          <% elsif user.profile.!exist %>
-            <%= link_to "Profile", new_profile_path %>
           <% end %>
           <li class="dropdown">
           <li><%= link_to "Recipes", posts_path %></li>
