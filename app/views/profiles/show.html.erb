@@ -1,14 +1,14 @@
 <section>
-  <h1><%= @profile.f_name + " " + @profile.l_name %></h1>
+  <h1><%= @profile.f_name.capitalize + " " + @profile.l_name.capitalize %></h1><hr/>
 </section>
 
 <div class="well">
   <h3>City:</h3>
-  <%= @profile.city %><br>  
+  <strong><%= @profile.city %><br></strong>  
   <h3>Signature Treat:</h3>
-  <%= @profile.treat_name %><br>  
+  <strong><%= @profile.treat_name %><br> </strong> 
   <h3>Breeds I own:</h3>  
-  <%= @profile.breeds_owned %><br>
+  <strong><%= @profile.breeds_owned %><br></strong>
   <h3>Contact:</h3>
-  <%= current_user.email %>  
+  <strong><%= current_user.email %></strong> 
 </div>

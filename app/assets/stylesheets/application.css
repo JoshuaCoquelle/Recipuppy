@@ -38,3 +38,11 @@ body {
   color: white;
   opacity: .8;
 }
+
+#showRecipe {
+  border-color: white;
+}
+#showRecipe:hover {
+  background-color: white; 
+  color: #3498db;
+}

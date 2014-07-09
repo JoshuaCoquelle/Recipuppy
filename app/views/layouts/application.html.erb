@@ -19,7 +19,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" id="brandText">Recipuppy</a>
+      <a class="navbar-brand" id="brandText">Recipuppy</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,6 +28,8 @@
           <li><%= link_to "Home", root_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Profile", profile_path(current_user) %> </li>
+          <% elsif user.profile.!exist %>
+            <%= link_to "Profile", new_profile_path %>
           <% end %>
           <li class="dropdown">
           <li><%= link_to "Recipes", posts_path %></li>
@@ -39,7 +41,7 @@
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
         <!-- <strong><%= current_user.email %></strong> -->
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link', class: "btn btn-default", id: "editProButton" %> 
+        <%= link_to 'Edit profile', edit_profile_path(current_user), class: "btn btn-default", id: "editProButton" %> 
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: "btn btn-default", id: "logoutButton" %>
         <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link', class: "btn btn-default", id: "editProButton"  %> 
@@ -55,7 +57,7 @@
   <p class="alert alert-danger"><%= alert %></p>
   <% end %>
     
-  <div class="container">  
+  <div class="container-fluid" <%= yield(:gradient) %> >   
     <%= yield %>
   </div>
 </body>

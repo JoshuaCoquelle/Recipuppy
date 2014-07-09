@@ -3,14 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #postWell {
-  border-radius: 20px;
+  border-radius: 30px;
   margin-top: 50px;
-  background-color: white;
+  background-color: #3498db;
   border: 2px solid;
-  border-color: #3498db;
+  border-color: #2992D8;
+  color: white;
+  text-align: center;
 }
 
 #showTitle {
   text-align: center;
   font-weight: 500px;
 }
+
+#descPullRight {
+  text-align: left;
+  font-size: 18px;
+}
+
+// .bgGradient {
+// }

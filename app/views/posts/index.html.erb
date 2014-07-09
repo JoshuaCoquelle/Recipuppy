@@ -1,12 +1,18 @@
-<% @posts.each do |post| %>
-  <div class="well" id="postWell">
-    <h3 id="showTitle"><%= post.title %></h3><hr>
-    <strong>Description:</strong>
-    <p><%= post.description %></p><hr>
-    <strong>Recipe:</strong>
-    <p><%= post.ingredients %></p><hr>
-    <strong>Potential Allergens:</strong>
-    <p><%= post.potential_allergens%></p>
-    <%= link_to "Show Recipe", post_path(post), class: "btn btn-primary btn-md" %>
+<!-- <% content_for(:gradient, "bgGradient") %> -->
+<div class="animated fadeIn">
+  <div class="row " id="indexPosts" >
+    <div class="col-md-10 col-md-offset-1">
+      <% @posts.each do |post| %>
+        <div class="well" id="postWell">
+          <h3 id="showTitle"><%= post.title %></h3><hr>
+          <h5>Description:</h5>
+          <p id="descPullRight"><%= post.description %></p><hr>
+          <%= link_to "Show Entire Recipe", post_path(post), class: "btn btn-warning btn-lg", id: "showRecipe" %>
+          <br>
+          <br>
+          Posted By: <lead><%= post.user.email %></lead><br><%= post.user.created_at(time_format) %> 
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

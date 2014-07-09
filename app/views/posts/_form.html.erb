@@ -1,11 +1,11 @@
 <%= form_for @post do |f| %>
   <div class="form-group">
     <p><%= f.label      :title  %></p>
-    <p><%= f.text_field :title, placeholder: "Enter your treat" %></p>
+    <p><%= f.text_field :title, placeholder: "Name your treat" %></p>
   </div>
 
   <div class="form-group">
-    <p><%= f.label     :description, "Summary" %></p>
+    <p><%= f.label     :description, "Description" %></p>
     <p><%= f.text_area :description, placeholder: "Briefly describe your treat." %></p>
   </div>
 
