@@ -17,15 +17,15 @@
   font-size: 15px;
   font-weight: 500;
   color: #3498DB;
+  & a {
+    color: #3498DB; 
+  }
 }
-.navbar-brand {
+
+#brandText {
   font-size: 25px;
   font-weight: 500;
   color: #3498DB;
-}
-
-#middleDiv {
-  background-color: #3498db;
 }
 
 #midDivText {
@@ -33,6 +33,13 @@
   font-size: 50px;
   font-weight: 300px;
   text-align: center;
+}
+
+#middleDiv {
+  background-color: #3498db;
+  min-height: 488px;
+  height: 488px;
+  max-height: 488px;
 }
 
 .absolute-center {
@@ -43,4 +50,8 @@
   right:0;
   bottom:0;
   left:0;
+}
+
+#safeHappy {
+  display: none;
 }

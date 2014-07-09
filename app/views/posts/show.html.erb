@@ -1,11 +1,12 @@
-<h1><%= @post.title %></h1>
-
-<strong>Summary:</strong
-<p><%= @post.description %></p>
-<strong>Ingredients:</strong>
-<p><%= @post.ingredients %></p>
-<strong>Potential Allergens:</strong>
-<p><%= @post.potential_allergens %></p>
+<div class="well" id="postWell">
+  <h1 id="showTitle"><%= @post.title %></h1>
+  <strong>Description:</strong>
+  <p><%= @post.description %></p>
+  <strong>Ingredients:</strong>
+  <p><%= @post.ingredients %></p>
+  <strong>Potential Allergens:</strong>
+  <p><%= @post.potential_allergens %></p>
+</div>
 
 <% if @post.liked_by?(current_user) %>
   <%= link_to "<i class='fa fa-thumbs-down fa-3x'></i>".html_safe, [@post, @like], method: :delete %>
@@ -19,21 +20,27 @@
   <%= link_to "<i class='fa fa-star fa-3x'></i>".html_safe, [@post, Favorite.new], method: :post %>
 <% end %>
 
-<%= form_for [@post, @comment] do |f| %>
-<div class="form-group">
-  <%= f.label :comment %>
-  <p><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!" %></p>
-</div>
-
-<div>
-  <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
-</div>
+<% if current_user == @post.user %>
+  <%= link_to "Delete Recipe", @post, method: :delete, data: {confirm: "Are you sure you would like to delete this recipe?"}, class: "btn btn-danger" %>
 <% end %>
 
-<div class="well">
-  <% @post.comments.each do |comment| %>
-    <p><%= comment.body %></p>
-    <%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %>
-    <hr>
+<hr>
+
+<div class="well" id="commentWell">
+  <%= form_for [@post, @comment] do |f| %>
+  <div class="form-group">
+    <%= f.label :comment %>
+    <p><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!" %></p>
+  </div>
+
+  <div>
+    <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+  </div>
   <% end %>
 </div>
+
+<% @post.comments.each do |comment| %>
+  <%= comment.body %>
+  <span class="pull-right"><%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %></span>
+  <hr>
+<% end %>

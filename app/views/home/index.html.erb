@@ -4,39 +4,41 @@
   </div>
 
   <div id="middleDiv" class="absolute-center">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4 
+       col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 " id="col_signUp">
+        <h2 class="animated bounceInLeft" id="favFriend">Your best friend's favorite recipes.<hr></h2>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+            <section class="animated bounceInLeft">
+              <div>
+                <p><%= f.email_field :email, autofocus: true, class: "form-control",
+                                              placeholder: "Enter your email" %></p>
+              </div>
+
+              <div>
+                <p><%= f.password_field :password, autocomplete: "off", class: "form-control",
+                placeholder: "Password" %></p>
+              </div>
+
+              <div>
+                <p><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",
+                placeholder: "Confirm your password" %></p>
+              </div>
+
+              <div>
+                <p id="signUpHome"><%= f.submit "Sign up", class: "btn btn-warning btn-lg btn-block" %></p>
+              </div><hr>
+            </section>
+          <% end %>
+
+        <h4 id="safeHappy">Safe.Happy.Healthy</h4>
+      </div>
+    </div>
+    
   </div>
 
   <div class="container" id="bottomCon">  
   </div>
-
   
-<div class="row"></div>
-  <div class="col-md-4"></div>   
-    <div class="row">
-      <div class="col-md-4" id="col_signUp">
-        <h2>Your best friend's favorite recipes.</h2><hr>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div>
-          <p><%= f.email_field :email, autofocus: true, class: "form-control",
-                                        placeholder: "Enter your email" %></p>
-        </div>
-
-        <div>
-          <p><%= f.password_field :password, autocomplete: "off", class: "form-control",
-          placeholder: "Password" %></p>
-        </div>
-
-        <div>
-          <p><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",
-          placeholder: "Confirm your password" %></p>
-        </div>
-
-        <div>
-          <p id="signUpHome"><%= f.submit "Sign up", class: "btn btn-warning btn-lg btn-block" %></p>
-        </div>
-        <% end %>
-      </div>
-    </div>
 </section>

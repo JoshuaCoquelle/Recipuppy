@@ -2,3 +2,8 @@ $brand-primary: #3498db;
 
 @import "bootstrap";
 @import "font-awesome";
+
+.nav > li > a:hover {
+text-decoration: none;
+background-color: transparent;
+}

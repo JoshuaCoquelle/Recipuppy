@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show]
+  before_action :find_user_recipe, only: [:edit, :update, :destroy]
   
   def index
     @posts = Post.all.order('id DESC')
@@ -21,7 +22,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      render 'new'
+      render :new
     end
   end  
 
@@ -30,15 +31,15 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      redirect_to "post_path(@post)"
+      redirect_to post_path(@post)
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     @post.destroy
-    redirect_to 'posts_path'
+    redirect_to posts_path
   end
 
   private
@@ -48,6 +49,10 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.permit(:post).permit([:title, :description, :ingredients, :potential_allergens])
+    params.require(:post).permit(:title, :description, :ingredients, :potential_allergens)
+  end
+
+  def find_user_recipe
+    @post = current_user.posts.find(params[:id])
   end
 end

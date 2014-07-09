@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
@@ -18,10 +19,11 @@ gem 'bootstrap-sass'
 gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# turbo links fix
+gem 'jquery-turbolinks'
 # Devise for User signup/in/out
 gem 'devise'
 # allow votes from users
-gem 'acts_as_votable', '~> 0.10.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

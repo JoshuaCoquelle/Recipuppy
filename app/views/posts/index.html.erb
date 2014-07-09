@@ -1,19 +1,13 @@
-<div class="container">
-  <h1>Recipes</h1>
-
-  <% @posts.each do |post| %>
-  <div class="well">
-    <h3><%= post.title %></h3>
-    Summary: <p><%= post.description %></p>
-    Recipe: <p><%= post.ingredients %></p>
-    Potential Allergens: <p><%= post.potential_allergens%></p>
-    <div class="pull-right">  
-      <%= link_to "Comment |" %>
-      <%= link_to "Show |", post_path(post) %>
-      <%= link_to "Like |" %>
-      <%= link_to "Favorite |" %>
-      <%= link_to "Danger" %>
-    </div>
+<% content_for :bg_color, "#3498db" %>
+<% @posts.each do |post| %>
+  <div class="well" id="postWell">
+    <h3 id="showTitle"><%= post.title %></h3><hr>
+    <strong>Description:</strong>
+    <p><%= post.description %></p><hr>
+    <strong>Recipe:</strong>
+    <p><%= post.ingredients %></p><hr>
+    <strong>Potential Allergens:</strong>
+    <p><%= post.potential_allergens%></p>
+    <%= link_to "Show Recipe", post_path(post), class: "btn btn-primary btn-md" %>
   </div>
-  <% end %>
-</div>
+<% end %>

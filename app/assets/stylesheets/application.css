@@ -18,3 +18,23 @@
 body { 
   padding-top: 70px; 
 }
+
+#editProButton {
+  color: #3498db;
+}
+
+#editProButton:hover {
+  background-color: orange; 
+  color: white;
+  opacity: .8;
+}
+
+#logoutButton {
+  color: #3498db;
+}
+
+#logoutButton:hover {
+  background-color: orange; 
+  color: white;
+  opacity: .8;
+}
