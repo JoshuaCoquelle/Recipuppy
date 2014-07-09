@@ -1,9 +1,9 @@
 <div class="well" id="postWell">
-  <h1 id="showTitle"><%= @post.title %></h1>
-  <strong>Description:</strong>
-  <p><%= @post.description %></p>
+  <h1 id="showTitle"><%= @post.title %></h1><hr>
+  <h4><strong>Description:</strong></h4>
+  <p><%= @post.description %></p><hr>
   <strong>Ingredients:</strong>
-  <p><%= @post.ingredients %></p>
+  <p><%= @post.ingredients %></p><hr>
   <strong>Potential Allergens:</strong>
   <p><%= @post.potential_allergens %></p>
 </div>
@@ -28,19 +28,21 @@
 
 <div class="well" id="commentWell">
   <%= form_for [@post, @comment] do |f| %>
-  <div class="form-group">
-    <%= f.label :comment %>
-    <p><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!" %></p>
-  </div>
+    <div class="form-group">
+      <%= f.label :comment %>
+      <p><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!" %></p>
+    </div>
 
-  <div>
-    <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
-  </div>
+    <div>
+      <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+    </div>
+  <% end %>
+
+<hr>
+
+  <% @post.comments.each do |comment| %>
+    <%= comment.body %>
+    <span class="pull-right"><%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You   Sure?"}, class: "btn btn-danger" %></span>
+    <hr>
   <% end %>
 </div>
-
-<% @post.comments.each do |comment| %>
-  <%= comment.body %>
-  <span class="pull-right"><%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You Sure?"}, class: "btn btn-danger" %></span>
-  <hr>
-<% end %>

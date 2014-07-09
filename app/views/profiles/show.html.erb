@@ -1,7 +1,14 @@
-<%= @profile.f_name %>
-<%= @profile.l_name %>
-<%= @profile.address %>
-<%= @profile.city %>
-<%= @profile.treat_name %>
-<%= @profile.breeds_owned %>
-<%= current_user.email %>
+<section>
+  <h1><%= @profile.f_name + " " + @profile.l_name %></h1>
+</section>
+
+<div class="well">
+  <h3>City:</h3>
+  <%= @profile.city %><br>  
+  <h3>Signature Treat:</h3>
+  <%= @profile.treat_name %><br>  
+  <h3>Breeds I own:</h3>  
+  <%= @profile.breeds_owned %><br>
+  <h3>Contact:</h3>
+  <%= current_user.email %>  
+</div>

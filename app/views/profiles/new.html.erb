@@ -2,27 +2,29 @@
 
 <%= form_for @profile do |f| %>
 <div class="form-group">
-  <p><%= f.label      :f_name, "First Name" %></p>
+  <p><%= f.label   :f_name, "First Name" %></p>
   <%= f.text_field :f_name %>
 </div>
 
 <div class="form-group">
-  <p><%= f.label      :l_name, "Last Name" %></p>
+  <p><%= f.label   :l_name, "Last Name" %></p>
   <%= f.text_field :l_name %>
 </div>
 
+ <!-- Remove column -->
 <div class="form-group">
-  <p><%= f.label      :address %></p>
+  <p><%= f.label   :address %></p> 
   <%= f.text_field :address %>
 </div>
+<!-- Remove column -->
 
 <div class="form-group">
-  <p><%= f.label      :city %></p>
+  <p><%= f.label   :city %></p>
   <%= f.text_field :city %>
 </div>
 
 <div class="form-group">
-  <p><%= f.label      :treat_name, "Your Signature Treat" %></p>
+  <p><%= f.label   :treat_name, "Your Signature Treat" %></p>
   <%= f.text_field :treat_name %>
 </div>
 

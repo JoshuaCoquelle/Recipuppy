@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   has_many :favorites
   has_many :likes
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :description, presence: true
   validates :ingredients, presence: true
   validates :potential_allergens, presence: true
