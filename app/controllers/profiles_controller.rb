@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit([:f_name, :l_name, :address, :city, :treat_name, :breeds_owned])
+    params.require(:profile).permit(:f_name, :l_name, :address, :city, :treat_name, :breeds_owned)
   end
 
 end

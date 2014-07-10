@@ -1,60 +1,67 @@
 <div class="animated fadeIn">
   <div class="row " id="indexPosts" >
     <div class="col-md-10 col-md-offset-1">
-        <div class="well" id="postWell">
-          <h3 id="showTitle"><%= @post.title %></h3><hr>
-          <h5>Description:</h5>
-          <p id="descPullRight"><%= @post.description %></p>
-          <h5>Ingredients:</h5>
-          <p id="descPullRight"><%= @post.ingredients %></p>
-          <h5>Potential Allergens:</h5>
-          <p id="descPullRight"><%= @post.potential_allergens %></p>
+      <div class="well" id="postWell">
+
+        <h3 id="showTitle"><%= @post.title %></h3><hr>
+        <h5>Description:</h5>
+        <p id="descPullRight"><%= @post.description %></p>
+        <h5>Ingredients:</h5>
+        <p id="descPullRight"><%= @post.ingredients %></p>
+        <h5>Potential Allergens:</h5>
+        <p id="descPullRight"><%= @post.potential_allergens %></p>
+        <hr>
+
+        <%= link_to "View All Recipes", posts_path, class: "btn btn-warning btn-lg", id: "showRecipe" %><br>
+        
+        <br>Posted By: <p><%= @post.user.email %></p>
+        <%= @post.user.created_at.time.to_formatted_s(:db) %> 
+        <br>
+        <br>
+        <% if @post.liked_by?(current_user) %>
+          <%= link_to "<i class='fa fa-thumbs-o-down fa-3x'></i>".html_safe, [@post, @like], method: :delete %>
+        <% else %>                    
+          <%= link_to "<i class='fa fa-thumbs-o-up  fa-3x'></i>".html_safe, [@post, Like.new], method: :post %>
+        <% end %>
+
+        <% if @post.favorited_by?(current_user) %>
+          <%= link_to "<i class='fa fa-star-o fa-3x'></i>".html_safe, [@post, @favorite], method: :delete %>
+        <% else %>                    
+          <%= link_to "<i class='fa fa-star fa-3x'></i>".html_safe, [@post, Favorite.new], method: :post %>
+        <% end %>
+
+        <% if current_user == @post.user %>
+          <%= link_to "Delete Recipe", @post, method: :delete, data: {confirm: "Are you sure you would like to delete this recipe?"}, class: "btn btn-danger" %>
+        <% end %>
+
           <hr>
-          <%= link_to "View All Recipes", posts_path, class: "btn btn-warning btn-lg", id: "showRecipe" %>
-          <br>
-          <br>
-          Posted By: <p><%= @post.user.email %></p><%= @post.user.created_at.time.to_formatted_s(:db)  %> 
+
+          <div class="well" id="commentWell">
+            <%= form_for [@post, @comment] do |f| %>
+              <div class="form-group">
+                <%= f.label :comment %>
+                <h5><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!", class: "form-control" %></h5>
+              </div>
+
+              <div>
+                <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
+              </div>
+            <% end %>
+
+          <hr>
+
+            <% @post.comments.each do |comment| %>
+              <p id="commentDiv"><%= comment.body %></h4>
+                <span class="pull-right"><%= link_to "Delete Comment", [@post, comment] , method: :delete, 
+                                            data: {confirm: "Are You   Sure?"}, class: "btn btn-danger btn-sm" %>
+                </span>
+                  <p id="usernameComment">Posted by: <%= comment.user.profile.f_name %></p>                
+              </p>
+              <hr>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
-</div>
-
-  <% if @post.liked_by?(current_user) %>
-    <%= link_to "<i class='fa fa-thumbs-down fa-3x'></i>".html_safe, [@post, @like], method: :delete %>
-  <% else %>                    
-    <%= link_to "<i class='fa fa-thumbs-up fa-3x'></i>".html_safe, [@post, Like.new], method: :post %>
-  <% end %>
-
-  <% if @post.favorited_by?(current_user) %>
-    <%= link_to "<i class='fa fa-star-o fa-3x'></i>".html_safe, [@post, @favorite], method: :delete %>
-  <% else %>                    
-    <%= link_to "<i class='fa fa-star fa-3x'></i>".html_safe, [@post, Favorite.new], method: :post %>
-  <% end %>
-
-  <% if current_user == @post.user %>
-    <%= link_to "Delete Recipe", @post, method: :delete, data: {confirm: "Are you sure you would like to delete this recipe?"}, class: "btn btn-danger" %>
-  <% end %>
-
-  <hr>
-
-  <div class="well" id="commentWell">
-    <%= form_for [@post, @comment] do |f| %>
-      <div class="form-group">
-        <%= f.label :comment %>
-        <p><%= f.text_area :body, :size => "100x5", placeholder: "Share Your Comments!" %></p>
-      </div>
-
-      <div>
-        <p><%= f.submit "Add Comment", class: "btn btn-primary" %></p>
-      </div>
-    <% end %>
-
-  <hr>
-
-    <% @post.comments.each do |comment| %>
-      <%= comment.body %>
-      <span class="pull-right"><%= link_to "Delete Comment", [@post, comment] , method: :delete, data: {confirm: "Are You   Sure?"}, class: "btn btn-danger" %></span>
-      <hr>
-    <% end %>
   </div>
 </div>

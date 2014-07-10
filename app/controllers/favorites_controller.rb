@@ -15,9 +15,9 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = current_user.favorites.find(params[:id])
     if @favorite.destroy
-      redirect_to @post, notice: "Recipe unfavorited."
+      redirect_to @post, notice: "Recipe Unfavorited."
     else
-      redirect_to @post, notice: "Recipe couldn't be unfavorited."
+      redirect_to @post, notice: "Recipe couldn't be Unfavorited."
     end
   end
 

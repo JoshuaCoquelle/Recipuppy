@@ -22,5 +22,26 @@
   font-size: 18px;
 }
 
-// .bgGradient {
-// }
+#commentDiv {
+  color: black;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 200px;
+}
+
+#usernameComment {
+  color: black;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 200px;
+}
+
+#newBtn {
+  border-color: white;
+}
+
+#newBtn:hover {
+  border-color: white;
+  background-color: white;
+  color: orange;
+}

@@ -38,7 +38,6 @@
   
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
-        <!-- <strong><%= current_user.email %></strong> -->
         <%= link_to 'Edit profile', edit_profile_path(current_user), class: "btn btn-default", id: "editProButton" %> 
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: "btn btn-default", id: "logoutButton" %>
         <% else %>
