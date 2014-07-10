@@ -1,0 +1,16 @@
+<div class="col-md-10 col-md-offset-1">
+  <% @posts.each do |post| %>
+    <div class="well" id="postWell">
+      <h3 id="showTitle"><%= post.title %></h3><hr>
+      <h5>Description:</h5>
+      <p id="descPullRight"><%= post.description %></p><hr>
+      <%= link_to "Show Recipe", post_path(post), class: "btn btn-warning btn-lg", id: "showRecipe" %>
+      <%= link_to "New Recipe", new_post_path, class: "btn btn-info btn-lg", id: "newBtn", 
+                                        data: { toggle: "modal", target: "#newRecipe" }, remote: true %>
+      <br>
+      <br>
+      Posted By: <p><%= post.user.email %></p>
+      <%= post.user.created_at.time.to_formatted_s(:db) %> 
+    </div>
+  <% end %>
+</div>

@@ -5,10 +5,14 @@ class CommentsController < ApplicationController
   def create
     @comment      = @post.comments.build(comment_params)
     @comment.user = current_user
-    if @comment.save
-      redirect_to post_path(@post), notice: "Comment Saved Successfully"
-    else
-      redirect_to post_path(@post), notice: "Comment Couldn't be Posted"
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to post_path(@post), notice: "Comment Saved Successfully" }
+        format.js   { render }
+      else
+        format.html { redirect_to post_path(@post), alert: "Comment Couldn't be Posted" }
+        format.js   { render }
+      end
     end
   end
 

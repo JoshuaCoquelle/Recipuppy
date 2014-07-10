@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     if @like.save
       redirect_to @post, notice: "Recipe liked!"
     else 
-      redirect_to @post, notice: "Couldn't like recipe."
+      redirect_to @post, alert: "Couldn't like recipe."
     end
   end
 
@@ -17,7 +17,7 @@ class LikesController < ApplicationController
     if @like.destroy
       redirect_to @post, notice: "Recipe Unliked."
     else
-      redirect_to @post, notice: "Couldn't unlike."
+      redirect_to @post, alert: "Couldn't unlike."
     end
   end
 

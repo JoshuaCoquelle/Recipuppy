@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to @post, notice: "Recipe favorited!"
     else
-      redirect_to @post, notice: "Couldn't favorite recipe."
+      redirect_to @post, alert: "Couldn't favorite recipe."
     end
   end
 
@@ -17,7 +17,7 @@ class FavoritesController < ApplicationController
     if @favorite.destroy
       redirect_to @post, notice: "Recipe Unfavorited."
     else
-      redirect_to @post, notice: "Recipe couldn't be Unfavorited."
+      redirect_to @post, alert: "Recipe couldn't be Unfavorited."
     end
   end
 
