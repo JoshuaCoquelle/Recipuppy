@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :profile
-
   has_many :posts    , dependent: :destroy
   has_many :comments , dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -16,6 +14,15 @@ class User < ActiveRecord::Base
   
   has_many :liked_posts,
            through: :likes, source: :post
+
+  validates :first_name, presence: true           
+  validates :last_name, presence: true           
+  validates :email, presence: true           
+  validates :password, presence: true           
   
+  def full_name
+      fullname = "#{last_name}, #{first_name}"
+  end
+
 end
 

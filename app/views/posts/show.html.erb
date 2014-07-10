@@ -55,7 +55,7 @@
                 <span class="pull-right"><%= link_to "Delete Comment", [@post, comment] , method: :delete, 
                                             data: {confirm: "Are You   Sure?"}, class: "btn btn-danger btn-sm" %>
                 </span>
-                  <p id="usernameComment">Posted by: <%= comment.user.profile.f_name %></p>                
+                  <p id="usernameComment">Posted by: <%= comment.user.first_name.capitalize %></p>                
               </p>
               <hr>
             <% end %>
