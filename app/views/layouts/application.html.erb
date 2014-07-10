@@ -25,12 +25,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id="navText">
-          <li><%= link_to "Home", root_path %></li>
-          <li class="dropdown">
-          <li><%= link_to "Recipes", posts_path %></li>
-          <li><a href="#">Top</a>
-          </ul>
-        </li>
+        <li><%= link_to "Home", root_path %></li>
+        <li class="dropdown">
+        <li><%= link_to "Recipes", posts_path %></li>
       </ul>
   
       <p class="navbar-text pull-right">
@@ -42,6 +39,7 @@
         <%= link_to "Login", new_user_session_path, :class => 'navbar-link', class: "btn btn-default", id: "editProButton"  %>
         <% end %>
       </p>
+    <br>
   </nav>
 
   <% if notice %>

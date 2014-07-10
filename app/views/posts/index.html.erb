@@ -1,9 +1,12 @@
 <div class="animated fadeIn">
-  <div class="row " id="indexPosts" >
+  
+  <div class="row " id="indexPosts">
+
     <%= render "recipeIndex" %>
+
   </div>
 </div>
 
-<%= will_paginate @posts %>
+<div id="willPaginate"><%= will_paginate @collection, renderer: BootstrapPagination::Rails %></div>
 
 <%= render "indexModal" %>
