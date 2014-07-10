@@ -23,7 +23,8 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 # Devise for User signup/in/out
 gem 'devise'
-# allow votes from users
+# Pagination gem
+gem 'will_paginate', '~> 3.0.5'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

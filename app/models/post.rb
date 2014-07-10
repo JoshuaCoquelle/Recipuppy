@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
   validates :ingredients, presence: true
   validates :potential_allergens, presence: true
 
+  self.per_page = 3
+
   def liked_by?(user)
     likes.exists?(user: user)
   end
