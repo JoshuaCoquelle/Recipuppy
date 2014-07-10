@@ -42,6 +42,7 @@ body {
 #showRecipe {
   border-color: white;
 }
+
 #showRecipe:hover {
   background-color: white; 
   color: #3498db;

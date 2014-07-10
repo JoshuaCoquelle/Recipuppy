@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true           
   
   def full_name
-      fullname = "#{last_name}, #{first_name}"
+    fullname = "#{last_name}, #{first_name}"
   end
 
 end

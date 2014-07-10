@@ -7,15 +7,18 @@ $brand-primary: #3498db;
 text-decoration: none;
 background-color: transparent;
 }
-html, body {
-  color:#d9feff;
-}
+
+// html, body {
+//   color:#d9feff;
+// }
+
 p, a {
   color:#d9feff;
   letter-spacing: 0.08em;
   font-size:18px;
   font-weight:100;
 }
+
 a:hover, a:active {
   text-decoration: underline;
 }

@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order('id DESC')
+    @post = Post.new
   end
 
   def show
@@ -20,10 +21,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to posts_path, notice: "Recipe Created" }
+        format.js   { render }
+      else
+        format.html { redirect_to posts_path, alert: "Couldn't Create Recipe" }
+        format.js   { render }
+      end
     end
   end  
 
