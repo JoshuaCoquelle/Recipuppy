@@ -1,32 +1,31 @@
-          <%= form_for(resource, as: resource_name, url:registration_path(resource_name)) do |f|%>
-              <%= devise_error_messages! %>
+<%= form_for(resource, as: resource_name, url:registration_path(resource_name)) do |f|%>
+    <%= devise_error_messages! %>
+    <section class="animated bounceInLeft">
+      <div>
+        <p><%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %></p>
+      </div>
 
-              <section class="animated bounceInLeft">
-                <div>
-                  <p><%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %></p>
-                </div>
+      <div>
+        <p><%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %></p>
+      </div>
 
-                <div>
-                  <p><%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %></p>
-                </div>
+      <div>
+        <p><%= f.email_field :email, autofocus: true, class: "form-control",
+                                      placeholder: "Enter your email" %></p>
+      </div>
 
-                <div>
-                  <p><%= f.email_field :email, autofocus: true, class: "form-control",
-                                                placeholder: "Enter your email" %></p>
-                </div>
+      <div>
+        <p><%= f.password_field :password, autocomplete: "off", class: "form-control",
+        placeholder: "Password" %></p>
+      </div>
 
-                <div>
-                  <p><%= f.password_field :password, autocomplete: "off", class: "form-control",
-                  placeholder: "Password" %></p>
-                </div>
+      <div>
+        <p><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",
+        placeholder: "Confirm your password" %></p>
+      </div>
 
-                <div>
-                  <p><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control",
-                  placeholder: "Confirm your password" %></p>
-                </div>
-
-                <div>
-                  <p id="signUpHome"><%= f.submit "Sign up", class: "btn btn-warning btn-lg btn-block" %></p>
-                </div><hr>
-              </section>
-          <% end %>
+      <div>
+        <p id="signUpHome"><%= f.submit "Sign up", class: "btn btn-warning btn-lg btn-block" %></p>
+      </div><hr>
+    </section>
+<% end %>

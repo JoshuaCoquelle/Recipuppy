@@ -26,30 +26,33 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id="navText">
         <li><%= link_to "Home", root_path %></li>
-        <li class="dropdown">
-        <li><%= link_to "Recipes", posts_path %></li>
+        <li><%= link_to "Cookbook", posts_path %></li>
+        <li><%= link_to "Favorited", posts_path %></li>
+        <li><%= link_to "My Recipes", posts_path %></li>
       </ul>
   
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
-        Hello, <%= current_user.first_name %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: "btn btn-default", id: "logoutButton" %>
+          Hello, <%= current_user.first_name %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: "btn btn-default", id: "logoutButton" %>
         <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link', class: "btn btn-default", id: "editProButton"  %> 
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link', class: "btn btn-default", id: "editProButton"  %>
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link', class: "btn btn-default", id: "editProButton"  %>
         <% end %>
       </p>
     <br>
   </nav>
 
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
     
-  <div class="container">   
+  <div class="container">
+    <div class="flash-messages">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 </body>

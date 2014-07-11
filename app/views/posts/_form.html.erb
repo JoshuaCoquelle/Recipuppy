@@ -1,24 +1,24 @@
 <%= form_for @post do |f| %>
   <div class="form-group">
-    <p><%= f.label      :title  %></p>
+    <p id="formLabel"><%= f.label :title, "Title:" %></p>
     <p><%= f.text_field :title, placeholder:
      "Name your treat", class: "form-control" %></p>
   </div>
 
   <div class="form-group">
-    <p><%= f.label     :description, "Description" %></p>
+    <p id="formLabel"><%= f.label :description, "Description:" %></p>
     <p><%= f.text_area :description, placeholder:
      "Briefly describe your treat.", class: "form-control"  %></p>
   </div>
 
   <div class="form-group">
-    <p><%= f.label     :ingredients %></p>
+    <p id="formLabel"><%= f.label :ingredients, "Directions:" %></p>
     <p><%= f.text_area :ingredients, placeholder:
-    "Make sure to provide thorough and  clear detail.", class: "form-control"  %></p>
+    "Make sure to provide thorough and clear detail.", class: "form-control"  %></p>
   </div> 
 
   <div class="form-group">
-    <p><%= f.label     :potential_allergens %></p>
+    <p id="formLabel"><%= f.label :potential_allergens, "Potential Allergens:" %></p>
     <p><%= f.text_area :potential_allergens, placeholder:
      "List all potential allergens in your recipe", class: "form-control"  %></p>
   </div>
