@@ -1,18 +1,21 @@
+<!-- title header -->
 <h3 id="showTitle"><%= @post.title %></h3><hr>
 <h5>Description:</h5>
 <p id="descPullRight"><%= @post.description %></p>
-<h5>Ingredients + Directions:</h5>
+<h5>Directions:</h5>
 <p id="descPullRight"><%= @post.ingredients %></p>
 <h5>Potential Allergens:</h5>
 <p id="descPullRight"><%= @post.potential_allergens %></p>
 
 <hr>
 
-<%= link_to "View All Recipes", posts_path, class: "btn btn-warning btn-lg", id: "showRecipe" %>
+<%= link_to "View All Recipes", posts_path, class: "btn btn-warning btn-lg",
+                                                         id: "showRecipe" %>
 
 <br>
 
-<br>Posted By:<p><%= @post.user.email %></p>
+<br>Posted By:
+<p><%= @post.user.email %></p>
 <%= @post.user.created_at.time.to_formatted_s(:db) %> 
 
 <br>
@@ -24,6 +27,7 @@
   <%= link_to "<i class='fa fa-thumbs-o-up  fa-3x'></i>".html_safe, [@post, Like.new], method: :post %>
 <% end %>
 
+<!-- display number of likes-->
 <%= @post.likes.count %>
 
 <% if @post.favorited_by?(current_user) %>
@@ -32,12 +36,13 @@
   <%= link_to "<i class='fa fa-star fa-3x'></i>".html_safe, [@post, Favorite.new], method: :post %>
 <% end %>
 
+<!-- display number of favorites-->
 <%= @post.favorites.count %>
 
 <% if current_user == @post.user %>
   <br>
-  <%= link_to "Delete Recipe", @post, method: :delete, data: {confirm: "Are you sure you would
-                                     like to delete this recipe?"}, class: "btn btn-danger" %>
+  <br>
+  <%= link_to "Delete Recipe", @post, method: :delete, data: {confirm: "Are you sure you would like to delete this recipe?"}, class: "btn btn-danger btn-lg" %>
 <% end %>
 
   <hr>

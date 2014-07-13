@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :my_recipes, only: [:index]
-  resources :my_favorites, only: [:index]
+  resources  :my_favorites, only: [:index]
 
   root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.

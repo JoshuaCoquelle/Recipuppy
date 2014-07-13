@@ -2,7 +2,8 @@
 <html>
 <head>
 
-  <title>Recipuppy | Join the community.</title>
+  <title>Recipuppy | Healthy.</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -19,7 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" id="brandText">Recipuppy</a>
+      <a class="navbar-brand" id="brandText" href="#">Recipuppy</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,12 +28,12 @@
       <ul class="nav navbar-nav" id="navText">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Cookbook", posts_path %></li>
-        <li><%= link_to "Favorited", my_favorites_path %></li>
         <% if user_signed_in? %>
+        <li><%= link_to "Favorited", my_favorites_path %></li>
         <li><%= link_to "My Recipes", my_recipes_path %></li>
         <% end %>
       </ul>
-  
+    
       <p class="navbar-text pull-right">
         <% if user_signed_in? %>
           Hello, <%= current_user.first_name %>

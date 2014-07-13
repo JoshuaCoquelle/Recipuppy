@@ -2,6 +2,11 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post
 
+  def index
+    @user = current_user
+    @favourites = @user.favourites
+  end
+
   def create
     @favorite      = @post.favorites.new
     @favorite.user = current_user
