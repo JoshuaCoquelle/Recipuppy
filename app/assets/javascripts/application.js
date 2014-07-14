@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require social-share-button
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
@@ -20,3 +21,4 @@
 $(document).ready(function(){
   $("#safeHappy").fadeIn(2500);
 });
+
