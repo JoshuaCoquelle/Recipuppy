@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require social-share-button
 //= require turbolinks
+//= require social-share-button
 //= require bootstrap
 //= require_tree .
 

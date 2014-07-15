@@ -1,4 +1,4 @@
 <% if @comment.save %>
-  $(".comments").html("<%= j render partial: '/posts/comment' %>");
+  $("#comments").html("<%= j render partial: '/posts/comment' %>");
   $("#clearComment").val(' ');
 <% end %>
