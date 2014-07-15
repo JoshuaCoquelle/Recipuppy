@@ -1,12 +1,11 @@
 <%= form_for [@post, @comment], remote: true do |f| %>
-  <div class="form-group">
-    <%= f.label :comment %>
+  <div class="form-group">    
     <h5><%= f.text_area :body, :size => "100x5", placeholder:
      "Share Your Comments!", class: "form-control", id: "clearComment" %></h5>
   </div>
   <div>
     <p>
-      <%= f.submit "Add Comment", class: "btn btn-primary" %>
+      <%= f.submit "Add Comment", class: "btn btn-default", id: "addCommentBtn" %>
     </p>
   </div>
 <% end %>

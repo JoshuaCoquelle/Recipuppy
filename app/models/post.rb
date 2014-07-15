@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :favorites
   has_many :likes
+  has_many :dangers, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
@@ -19,5 +20,9 @@ class Post < ActiveRecord::Base
   def favorited_by?(user)
     favorites.exists?(user: user)
   end
+
+  def marked_as_dangerous?
+    dangers.count == 20
+  end 
   
 end

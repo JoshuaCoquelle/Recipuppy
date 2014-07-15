@@ -5,12 +5,11 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.paginate(page: params[:page]).order('id DESC')  
-
   end
 
   def show
-    @comment = Comment.new
-    @like = @post.likes.where(user: current_user).first
+    @comment  = Comment.new
+    @like     = @post.likes.where(user: current_user).first
     @favorite = @post.favorites.where(user: current_user).first
   end
 
@@ -19,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post      = Post.new(post_params)
     @post.user = current_user
     respond_to do |format|
       if @post.save

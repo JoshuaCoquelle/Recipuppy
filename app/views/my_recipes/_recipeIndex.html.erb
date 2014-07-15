@@ -8,13 +8,13 @@
       <p id="descPullRight"><%= recipe.ingredients %></p><hr>
       <h5>Potential Allergens:</h5>
       <p id="descPullRight"><%= recipe.potential_allergens %></p><hr>
-      <br>
+      <div class="addthis_sharing_toolbox"></div>
       <br>
       Posted By: <p><%= recipe.user.email %></p>
       <%= recipe.user.created_at.time.to_formatted_s(:db) %> 
       <br>
       <br>
-      <%= link_to "Delete My Recipe", @post, method: :delete, data: {confirm: "Are you sure you would like to delete this recipe?"}, class: "btn btn-danger btn-lg" %>
+      <%= link_to "Delete My Recipe", @post, method: :delete, data: {confirm: "Are you sure you would like to delete this recipe?"}, class: "btn btn-danger btn-md" %>
     </div>
   <% end %>
 </div>

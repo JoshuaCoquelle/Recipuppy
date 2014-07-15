@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   before_action :find_post
 
   def index
-    @user = current_user
+    @user       = current_user
     @favourites = @user.favourites
   end
 

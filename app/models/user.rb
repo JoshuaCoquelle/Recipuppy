@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments , dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :likes    , dependent: :destroy
+  has_many :dangers  , dependent: :destroy
   
   has_many :favorited_posts, 
            through: :favorites, source: :post

@@ -1,17 +1,7 @@
 class MyFavoritesController < ApplicationController
   
-  before_action :find_user_fav
-
   def index
-  end
-
-  private
-
-  def find_user_fav
-    @favorites = Favorite.where("user_id = ?", current_user)
+    @my_favorites = current_user.favorited_posts.paginate(page: params[:page]).order('id DESC')
   end
 
 end
-
-
-

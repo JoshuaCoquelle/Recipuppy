@@ -1,6 +1,5 @@
 <div class="col-md-10 col-md-offset-1">
-  <% @favorites.each do |fav| %>
-    <% Post.where("id = ? ", fav.post_id).each do |recipe| %>
+    <% @my_favorites.each do |recipe| %>
       <div class="well" id="recipeWell">
       <h3 id="showTitle"><%= recipe.title %></h3><hr>
       <h5>Description:</h5>
@@ -9,10 +8,11 @@
       <p id="descPullRight"><%= recipe.ingredients %></p><hr>
       <h5>Potential Allergens:</h5>
       <p id="descPullRight"><%= recipe.potential_allergens %></p><hr>
-      
+      <div class="addthis_sharing_toolbox"></div>
+      <br>
       Posted By: <p><%= recipe.user.email %></p>
       <%= recipe.user.created_at.time.to_formatted_s(:db) %> 
     </div> 
     <% end %>
-  <% end %>
 </div>
+
