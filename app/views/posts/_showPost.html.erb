@@ -37,9 +37,9 @@
 
 
 <!-- danger button for deletion -->
-<% if @post.marked_as_dangerous? %>
+<% if @post.marked_as_dangerous?(current_user) %>
   <%= link_to "<i class='fa fa-exclamation-triangle fa-3x'></i>".html_safe,
-  [@post, @danger], method: :delete %>
+ "javascript:void(0);", id: "danger-icon", data: {toggle: "tooltip", placement: "top"}, title: "Already Dangered" %>
 <% else %>
   <%= link_to "<i class='fa fa-exclamation-triangle fa-3x'></i>".html_safe,
   [@post, Danger.new], method: :post %>
