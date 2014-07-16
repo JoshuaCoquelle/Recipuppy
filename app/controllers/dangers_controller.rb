@@ -4,7 +4,7 @@ class DangersController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
 
-    if @post.marked_as_dangerous?
+    if @post.exceeded_max_dangers?
       @post.destroy
       redirect_to posts_path, notice: 'Post deleted for being dangerous'
     else

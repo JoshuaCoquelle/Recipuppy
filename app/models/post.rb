@@ -21,8 +21,16 @@ class Post < ActiveRecord::Base
     favorites.exists?(user: user)
   end
 
-  def marked_as_dangerous?
-    dangers.count == 20
-  end 
+  def marked_as_dangerous?(current_user)
+    dangered_users.include? current_user
+  end
+
+  def exceeded_max_dangers?
+    dangers.count >= 10
+  end
+
+  def marked_by?(user)
+    dangers.exists?(user: user)
+  end
   
 end
