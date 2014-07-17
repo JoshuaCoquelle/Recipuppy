@@ -1,0 +1,35 @@
+// Colors
+$white: #fff;
+$black: #000;
+$recipuppyblue: #3498db;
+
+//btns
+$recipuppy-btn: #2b7dbf;
+$recipuppy-btn-dark: #22629c;
+$recipuppy-btn-darkest: #144d81;
+
+.btn-info {
+  background-color: $recipuppy-btn-darkest;
+}
+
+.btn-info:hover {
+  background-color: $recipuppy-btn-dark;
+}
+
+.btn-danger {
+  background-color: $recipuppy-btn;
+}
+
+.btn-danger:hover {
+  background-color: $recipuppy-btn-dark;
+}
+
+.btn-warning {
+  background-color: $recipuppy-btn-dark;
+  border-color: white;
+}
+
+.btn-warning:hover {
+  background-color: $recipuppy-btn;
+  border-color: white;
+}
