@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   has_many :favorites
   has_many :likes
   has_many :dangers, dependent: :destroy
+  has_many :dangered_users, through: :dangers, source: :user
 
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true

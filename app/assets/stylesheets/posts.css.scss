@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #postWell {
-  border-radius: 30px;
   margin-top: 30px;
   background-color: #3498db;
   border: 2px solid;
@@ -17,15 +16,19 @@
   font-weight: 500px;
 }
 
+#fields {
+  font-size: 18px;
+}
+
 #descPullRight {
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #commentDiv {
   color: black;
   text-align: left;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 200px;
 }
 
@@ -52,7 +55,6 @@
 
 #formLabel {
   color: orange;
-  // color: #3498db;
   font-weight: 100px;
   font-size: 13px;
 }

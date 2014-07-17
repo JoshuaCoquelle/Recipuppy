@@ -42,11 +42,13 @@ body {
 
 #showRecipe {
   border-color: white;
+  background-color: #f94892;
+  opacity: .9;
 }
 
 #showRecipe:hover {
-  background-color: white; 
-  color: #3498db;
+  border-color: white;
+  background-color: #f23081;
 }
 
 #signIn {
@@ -67,4 +69,25 @@ body {
 
 #addCommentBtn {
   color: #3498db;
+}
+
+#editButton {
+  background-color: #b935f2;
+  border-color: white;
+  opacity: .9;
+}
+
+
+#editButton:hover {
+  background-color: #962bc4;
+  border-color: white;
+  color: white;
+}
+
+#newBtn:hover {
+  border-color: orange;
+}
+
+#indexShow {
+  border-color: white;
 }

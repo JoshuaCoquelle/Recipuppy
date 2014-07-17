@@ -2,11 +2,11 @@
     <% @my_favorites.each do |recipe| %>
       <div class="well" id="recipeWell">
       <h3 id="showTitle"><%= recipe.title %></h3><hr>
-      <h5>Description:</h5>
+      <h5 id="fields">Description:</h5>
       <p id="descPullRight"><%= recipe.description %></p><hr>
-      <h5>Directions:</h5>
+      <h5 id="fields">Directions:</h5>
       <p id="descPullRight"><%= recipe.ingredients %></p><hr>
-      <h5>Potential Allergens:</h5>
+      <h5 id="fields">Potential Allergens:</h5>
       <p id="descPullRight"><%= recipe.potential_allergens %></p><hr>
       <div class="addthis_sharing_toolbox"></div>
       <br>
