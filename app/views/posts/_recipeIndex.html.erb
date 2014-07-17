@@ -4,7 +4,7 @@
       <h3 id="showTitle"><%= post.title %></h3><hr>
       <h5>Description:</h5>
       <p id="descPullRight"><%= post.description %></p><hr>
-      <%= link_to "Show Recipe", post_path(post), class: "btn btn-warning btn-lg", id: "showRecipe" %>
+      <%= link_to "View Full Recipe", post_path(post), class: "btn btn-warning btn-lg", id: "showRecipe" %>
       <br>
       <br>
       Posted By: <p><%= post.user.email %></p>
