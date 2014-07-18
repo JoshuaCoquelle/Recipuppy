@@ -94,3 +94,8 @@ body {
 #signUp {
   background-color: #f0ad4e;
 }
+
+#signUp:hover {
+  background-color: #e09e41;
+}
+
