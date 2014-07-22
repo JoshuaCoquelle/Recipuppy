@@ -42,14 +42,11 @@
   max-height: 488px;
 }
 
-.absolute-center {
-  position: absolute;
-  margin: auto;
-  height: 500px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+#main .container {
+  text-align: center;
+  position:relative;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 #safeHappy {
