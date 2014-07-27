@@ -16,6 +16,11 @@
  *= require_self
  */
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body { 
   padding-top: 70px; 
 }
